@@ -1,0 +1,63 @@
+{
+  "name": "id62",
+  "version": "1.0.0",
+  "description": "Base-62 Random UUIDs for Node.js",
+  "keywords": [
+    "base62",
+    "id",
+    "random",
+    "uuid"
+  ],
+  "homepage": "https://github.com/trevorr/id62#readme",
+  "bugs": {
+    "url": "https://github.com/trevorr/id62/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trevorr/id62.git"
+  },
+  "license": "ISC",
+  "author": "Trevor Robinson",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf dist && tsc --project src",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:ci": "eslint 'src/**/*.ts' --format junit --output-file test-results/eslint/eslint.xml",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test && npm run lint",
+    "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
+    "test": "nyc mocha 'test/**/*.test.ts'"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": true
+  },
+  "nyc": {
+    "branches": 100,
+    "functions": 100,
+    "lines": 100,
+    "statements": 100
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.24",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^6.2.2",
+    "mocha-junit-reporter": "^1.23.1",
+    "mocha-multi-reporters": "^1.1.7",
+    "nyc": "^15.0.0",
+    "prettier": "^1.19.1",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
+  }
+}
