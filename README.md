@@ -1,9 +1,9 @@
-# id62: Base-62 Random UUIDs for Node.js
+# id62: Base-62 Random UUIDs for Javascript
 
 [![npm](https://img.shields.io/npm/v/id62)](https://www.npmjs.com/package/id62)
 [![CircleCI](https://img.shields.io/circleci/build/github/trevorr/id62)](https://circleci.com/gh/trevorr/id62)
 
-A small, fast base-62 universally unique identifier (UUID) generator for Node.js written in Typescript.
+A small, fast base-62 universally unique identifier (UUID) generator written in Typescript.
 
 ## Goals/Benefits
 
@@ -15,7 +15,7 @@ A small, fast base-62 universally unique identifier (UUID) generator for Node.js
   * Same negligible collision probability ("the probability to find a duplicate within 103 trillion version-4 UUIDs is one in a billion")
   * Could be translated to a hexadecimal UUID v4 for interoperability if necessary
 * Fixed-length representation (leading zeroes not dropped)
-* Cryptographically secure randomization (from Node's `crypto.randomBytes`)
+* Cryptographically secure randomization using Web Crypto
 * Avoid unnecessary steps, such as converting a UUID v4 string to base-62
 * No dependencies
 
@@ -28,7 +28,7 @@ npm install id62
 ## Usage
 
 ```ts
-import id62 from 'id62';
+import { id62 } from 'id62';
 
 console.log(id62()); // 0KwQZuxQNLAxV7a7mFm16
 ```

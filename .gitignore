@@ -1,8 +1,9 @@
+.claude
 .DS_Store
+.tsimp
 *-debug.log
 *-error.log
 *.tgz
-/.nyc_output
 /coverage
 /dist
 /node_modules
