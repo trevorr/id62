@@ -38,12 +38,12 @@
   "scripts": {
     "build": "rm -rf dist && tsc --project src",
     "lint": "eslint 'src/**/*.ts' 'test/**/*.ts'",
-    "lint:ci": "eslint --format junit --output-file test-results/eslint/eslint.xml 'src/**/*.ts' 'test/**/*.ts'",
+    "lint:ci": "mkdirp test-results/eslint && eslint --format junit --output-file test-results/eslint/eslint.xml 'src/**/*.ts' 'test/**/*.ts'",
     "prepare": "npm run build",
     "prepublishOnly": "npm run test && npm run lint",
     "prettier": "prettier --write 'src/**/*.ts' 'test/**/*.ts'",
     "test": "node --import=tsimp/import --test 'test/**/*.test.ts'",
-    "test:ci": "c8 --100 --reporter=lcov --reporter=html --reporter=text node --import=tsimp/import --test --test-reporter=spec --test-reporter=junit --test-reporter-destination=stdout --test-reporter-destination=test-results/junit/junit.xml 'test/**/*.test.ts'",
+    "test:ci": "mkdirp test-results/junit && c8 --100 --reporter=lcov --reporter=html --reporter=text node --import=tsimp/import --test --test-reporter=spec --test-reporter=junit --test-reporter-destination=stdout --test-reporter-destination=test-results/junit/junit.xml 'test/**/*.test.ts'",
     "test:coverage": "c8 --100 --reporter=lcov --reporter=html --reporter=text node --import=tsimp/import --test 'test/**/*.test.ts'"
   },
   "devDependencies": {
@@ -52,6 +52,7 @@
     "c8": "^10.1.3",
     "eslint": "^9.39.1",
     "eslint-formatter-junit": "^9.0.1",
+    "mkdirp": "^3.0.1",
     "prettier": "^3.6.2",
     "tsimp": "^2.0.12",
     "tsx": "^4.20.6",
