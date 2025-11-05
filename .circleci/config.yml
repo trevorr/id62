@@ -14,13 +14,13 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          command: npm test
+          command: npm run test:ci
       - run:
           command: npm run lint:ci
       - store_test_results:
           path: test-results
       - store_artifacts:
-          path: test-results/mocha/mocha.xml
+          path: test-results/junit/junit.xml
       - store_artifacts:
           path: test-results/eslint/eslint.xml
       - store_artifacts:
